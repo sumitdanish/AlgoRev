@@ -25,7 +25,7 @@ public class RotateLinkList {
 		    RotateLinkList rotate = new RotateLinkList();
 		    cl.print(list);
 		    System.out.println("\n_____________________________________\n");
-		    Node li = rotate.rotateALterNate(list,3);
+		    Node li = rotate.reverAlterNateNodeUsingRecursion(list,3);
 		    cl.print(li);
 		}
 		catch(Exception ex)
@@ -102,15 +102,40 @@ public class RotateLinkList {
 					n1=t;
 				}
 				k1=k;
-//				while(temp!=null&&k1>0)
-//				{
-//					temp=temp.getNextNode();
-//					k1--;
-//				}
 				n=temp;
 			}
 			list=n2;
 			return list;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	private Node reverAlterNateNodeUsingRecursion(Node list,int k)
+	{
+		try
+		{
+			Node result=list;
+			Node pre=null;
+			Node n = null;
+			int k1=k;
+			while(result!=null&&k>0)
+			{
+				n=result.getNextNode();
+				result.setNextNode(pre);
+				pre=result;
+				result=n;
+				k--;
+			}
+			if(n!=null)
+			{
+				list.setNextNode(reverAlterNateNodeUsingRecursion(n, k1));
+			}
+			return pre;
 		}
 		catch(Exception ex)
 		{
