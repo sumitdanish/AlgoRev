@@ -57,7 +57,7 @@ public class CopyLinkListUsingRandomPointer {
 			/*By Using this loop we are copy the random pinter from given pointer*/
 			while(n!=null)
 			{
-				if(n.getRandomNode()!=null)
+				if(n.getNextNode()!=null)
 				{
 					//System.out.println(n.getRandomNode().getData());
 					n.getNextNode().setRandomNode(n.getRandomNode().getNextNode());
